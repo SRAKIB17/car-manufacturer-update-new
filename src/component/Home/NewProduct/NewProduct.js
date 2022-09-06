@@ -17,9 +17,9 @@ const NewProduct = () => {
 
 
     return (
-        <div className='mt-9 w-fit  border-primary rounded-md m-8 md:mr-4  md:ml-4 xl:mr-28 xl:ml-28'>
+        <div className='mt-9 w-fit  border-primary rounded-md sm:m-8 md:mr-4  md:ml-4 xl:mr-28 xl:ml-28'>
             <h1 className='text-3xl m-4 font-bold text-black'>🔘 New Product</h1>
-            <div className='p-6 m-4 grid-cols-1 sm:grid-cols-2  gap-2 items-center justify-center grid md:grid-cols-2 lg:grid-cols-4 lg:gap-4'>
+            <div className='sm:p-6 sm:m-4 grid-cols-1 sm:grid-cols-2  gap-2 items-center justify-center grid md:grid-cols-2 lg:grid-cols-4 lg:gap-4'>
                 {
                     newProduct?.map(product => <ShowProduct key={product._id} product={product} />)
                 }

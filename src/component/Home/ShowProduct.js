@@ -7,7 +7,7 @@ const ShowProduct = ({ product: { _id, category, image, short_description, minim
 
     return (
         <div className='productBg'>
-            <div className="productShadow  card servicesComponent h-full">
+            <div className="productShadow  rounded-sm servicesComponent h-full">
                 <div className='card-body p-0 relative'>
                     <div>
                         <div>
