@@ -13,7 +13,8 @@ const OrderShow = ({ order, index }) => {
 
     const { orderId, quantity, address, payment, status } = order;
 
-    const { data, isLoading, refetch } = useQuery('specificAllOrder', () => axios.get(`https://fathomless-thicket-10172.herokuapp.com/product/${orderId}`, {
+
+    const { data, isLoading, error, refetch } = useQuery(['Purchase', orderId], () => axios.get(`https://fathomless-thicket-10172.herokuapp.com/product/${orderId}`, {
         headers: {
             'authorize': `token ${localStorage.getItem('tokenVerify')}`
         }
@@ -22,7 +23,10 @@ const OrderShow = ({ order, index }) => {
     if (isLoading) {
         return <Loading />
     }
+
+    console.log(data)
     const TotalPrice = parseInt(quantity) * Number(discount_price);
+
 
     const changingHandleOrder = async (e) => {
         e.preventDefault()
@@ -39,6 +43,12 @@ const OrderShow = ({ order, index }) => {
         refetch()
     }
 
+
+
+    const minimumQ = data?.data?.minimum_quantity;
+
+
+    const product = data?.data || {};
     return (
 
         <tr>
